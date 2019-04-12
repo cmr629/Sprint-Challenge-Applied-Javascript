@@ -25,14 +25,18 @@ class Carousel {
     }
     clickedLeft(){
         this.imgs[this.currentIndex].style.display = 'none';
+        this.imgs[this.currentIndex].className = '';
         this.currentIndex = this.getNextImage(--this.currentIndex);
-        this.imgs[this.currentIndex].style.display = 'flex'; 
+        this.imgs[this.currentIndex].style.display = 'block'; 
+        this.imgs[this.currentIndex].classList.add('left-animate');
     }
 
     clickedRight(){
         this.imgs[this.currentIndex].style.display = 'none';
+        this.imgs[this.currentIndex].className = '';
         this.currentIndex = this.getNextImage(++this.currentIndex);
-        this.imgs[this.currentIndex].style.display = 'flex'; 
+        this.imgs[this.currentIndex].style.display = 'block'; 
+        this.imgs[this.currentIndex].classList.add('right-animate');
     }
 }
 
