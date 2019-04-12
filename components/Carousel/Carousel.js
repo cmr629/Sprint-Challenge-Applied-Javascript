@@ -2,19 +2,25 @@ class Carousel {
     constructor(carousel){
         this.carousel = carousel;
 
+        // Get left and right buttons
         this.leftButton = this.carousel.querySelector('.left-button');
         this.rightButton = this.carousel.querySelector('.right-button');
 
+        // Select all images
         this.imgs = this.carousel.querySelectorAll('img');
+        // Set first image to display:flex
         this.imgs[0].style.display = 'flex';
 
+        // Set current index to 0
         this.currentIndex = 0;
 
+        // Add event listeners to buttons
         this.leftButton.addEventListener('click', () => { this.clickedLeft() });
         this.rightButton.addEventListener('click', () => { this.clickedRight() });
     }
 
     getNextImage(index){
+        // Get current index and loop around if less than 0 of greater than length
         if (index < 0)
             index = this.imgs.length - 1;
         else
@@ -24,6 +30,7 @@ class Carousel {
         return index;
     }
     clickedLeft(){
+        // current image display none then display next image and add animation class to animate
         this.imgs[this.currentIndex].style.display = 'none';
         this.imgs[this.currentIndex].className = '';
         this.currentIndex = this.getNextImage(--this.currentIndex);
@@ -32,6 +39,7 @@ class Carousel {
     }
 
     clickedRight(){
+        // current image display none then display next image and add animation class to animate
         this.imgs[this.currentIndex].style.display = 'none';
         this.imgs[this.currentIndex].className = '';
         this.currentIndex = this.getNextImage(++this.currentIndex);
